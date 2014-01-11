@@ -24,8 +24,8 @@ class GameOfLife
   def evolve_game_board
     rows = game_board.row_vectors.collect { |row| row.to_a }
     game_board.each_with_index do |cell, row, col|
-
       # find a sub-section of the matrix based on the current element's position
+      # using ranges
       neighboring_row_range = 
         (row == 0 ? row : row - 1)..(row > game_board.row_size ? row : row + 1)
       neighboring_col_range =
@@ -35,16 +35,17 @@ class GameOfLife
       neighbors = game_board.minor neighboring_row_range, neighboring_col_range
       living_neighbor_count = neighbors.each.count { |i| i == 1 } - cell
 
-      # apply the game rules based on living neighbor count
+      # apply the game rules to the current cell
       rows[row][col] = alive_for_next_generation?(cell, living_neighbor_count) ? 1 : 0
     end
-    # replace the game board with a new Matrix reflecting
+    # replace the game board with a new Matrix representing the next generation
     self.game_board = Matrix.rows(rows)
   end
 
   # indicate whether a given cell should be "living" in the next generation
   # based on living neighbor count
-  # param cell [Numeric] the
+  # param cell [Numeric] the current cell value (1 or 0)
+  # param living_neighbor_count [Numeric] the count of living neighbors
   def alive_for_next_generation?(cell, living_neighbor_count)
     if cell == 1
       (2..3).include?(living_neighbor_count)
