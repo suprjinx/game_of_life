@@ -42,6 +42,9 @@ class GameOfLife
     self.game_board = Matrix.rows(rows)
   end
 
+  # indicate whether a given cell should be "living" in the next generation
+  # based on living neighbor count
+  # param cell [Numeric] the
   def alive_for_next_generation?(cell, living_neighbor_count)
     if cell == 1
       (2..3).include?(living_neighbor_count)

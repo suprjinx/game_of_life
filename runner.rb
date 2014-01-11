@@ -8,6 +8,7 @@ initial_game_board = Matrix[
     [1, 1, 0, 0, 1],
     [0, 1, 0, 0, 0],
     [1, 0, 0, 0, 1]]
+
 generations = 3
 
 GameOfLife.new(initial_game_board).run(generations)

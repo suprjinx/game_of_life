@@ -20,15 +20,17 @@ The code should take this board and create a new board for the next generation b
 4. Any dead cell with exactly three live neighbours becomes a live cell (reproduction)
 
 As an example, this game board as input:
-    01000
-    10011
-    11001
-    01000
-    10001
+
+    0 1 0 0 0
+    1 0 0 1 1
+    1 1 0 0 1
+    0 1 0 0 0
+    1 0 0 0 1
 
 Will have
-    00000
-    10111
-    11111
-    01000
-    00000
+
+    0 0 0 0 0
+    1 0 1 1 1
+    1 1 1 1 1
+    0 1 0 0 0
+    0 0 0 0 0
