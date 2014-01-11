@@ -20,6 +20,15 @@ class GameOfLife
     end
   end
 
+  # print out the game board
+  # @param heading [String] the heading to place above the board
+  def print_game_board(heading = nil)
+    puts heading if heading
+    puts game_board.to_a.map(&:inspect)
+  end
+
+  private
+
   # evolve the game board one generation
   def evolve_game_board
     rows = game_board.row_vectors.collect { |row| row.to_a }
@@ -44,8 +53,8 @@ class GameOfLife
 
   # indicate whether a given cell should be "living" in the next generation
   # based on living neighbor count
-  # param cell [Numeric] the current cell value (1 or 0)
-  # param living_neighbor_count [Numeric] the count of living neighbors
+  # @param cell [Numeric] the current cell value (1 or 0)
+  # @param living_neighbor_count [Numeric] the count of living neighbors
   def alive_for_next_generation?(cell, living_neighbor_count)
     if cell == 1
       (2..3).include?(living_neighbor_count)
@@ -54,10 +63,4 @@ class GameOfLife
     end
   end
 
-  # print out the game board
-  # @param heading [String] the heading to place above the board
-  def print_game_board(heading = nil)
-    puts heading if heading
-    puts game_board.to_a.map(&:inspect)
-  end
 end

@@ -5,7 +5,7 @@ Exercise 4
 
 The programming exercise below is implemented in Ruby in the `GameOfLife` class. The driver script exercises it.
 
-To run, type `ruby runner.rb`. Tested with Ruby 1.9.3.
+To run, type `ruby driver.rb`. Tested with Ruby 1.9.3.
 
 
 ##Description
